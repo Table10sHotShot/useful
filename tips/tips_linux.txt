@@ -1,0 +1,21 @@
+ssh
+
+screen
+
+screen -S name
+start screen with label name
+
+    ^a c
+    create new window
+
+    ^a (n/p)
+    go to (next/previous) window
+
+    type exit to exit windows
+    once all windows exited, exit will end screen
+
+find <path> -name expr
+recursively find expr as a filename (use -iname to ignore case)
+
+man -k expr
+finds expr in descriptions of sh commands

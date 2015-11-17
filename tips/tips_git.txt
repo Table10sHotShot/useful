@@ -1,0 +1,19 @@
+HEAD^n
+goes to nth parent (can have more than one parent as a result of merging)
+
+HEAD~n
+goes back n generations (assuming first parent if applicable)
+
+git log --graph
+graphs git history
+
+git blame -L x,+y <filename>
+Finds last commits for lines x through x+y in filename
+<filename> can be "remote/branch -- filename" to do this on a different remote
+
+git add --patch
+Splits up changes to add to index
+	s splits up hunk more
+	e edit hunk
+	d go to next file
+	? see meanings of all options

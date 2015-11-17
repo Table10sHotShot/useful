@@ -1,0 +1,10 @@
+# Virtual machine temp files
+*.swp
+# Temporary python bytecode files
+*.pyc
+.DS_Store
+.vim/bundle/*
+!.vim/bundle/vundle
+.vim/ycm_build
+.vim/.netrwhist
+my_py/examples

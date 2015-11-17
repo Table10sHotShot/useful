@@ -1,0 +1,26 @@
+IPython
+
+Auto reload modules
+%load_ext autoreload
+%autoreload 2
+
+Pandas
+
+cut
+Bin data by portion of data range
+
+qcut
+Bin data by portion of data
+
+Grouper
+Specify data for groupby()
+http://pandas.pydata.org/pandas-docs/dev/groupby.html#grouping-with-a-grouper-specification
+eg. df.groupby([pd.Grouper(freq='1M',key='Date'),'Buyer']).sum()
+
+Python
+
+Package is a directory containing an __init__.py file
+The __init__.py file can control what children are available when the package is imported
+
+Partial unpacking
+a, *b, c = [0, 1, 2, 3, 4]

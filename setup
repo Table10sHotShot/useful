@@ -1,0 +1,70 @@
+#!/bin/bash
+
+sudo apt-get install build-essential cmake
+sudo apt-get install zsh
+sudo apt-get install vim
+
+chsh -s /bin/zsh
+
+# Symlinks bash aliases to ~/.bash_aliases
+if [ ! -f $HOME/.bash_aliases ]
+then
+    echo .bash_aliases does not exist in $HOME... symlinking it now
+    sudo ln -s $PWD/.bash_aliases $HOME/.bash_aliases
+else
+    echo .bash_aliases folder already exists in $HOME
+fi
+
+# Symlinks .vim folder (for colorschemes) to ~/.vim
+# Note this breaks UltiSnips plugin on Linux VBox
+if [ ! -d $HOME/.vim ]
+then
+    echo .vim folder does not exist in $HOME... symlinking it now
+    sudo ln -s $PWD/.vim $HOME/.vim
+else
+    echo .vim folder already exists in $HOME
+fi
+
+# Symlinks .vimrc ~/.vimrc
+if [ ! -f $HOME/.vimrc ]
+then
+    echo .vimrc does not exist in $HOME... symlinking it now
+    sudo ln -s $PWD/.vimrc $HOME/.vimrc
+else
+    echo .vimrc already exists in $HOME
+fi
+
+# Symlinks .gitconfig ~/.gitconfig
+if [ ! -f $HOME/.gitconfig ]
+then
+    echo .gitconfig does not exist in $HOME... symlinking it now
+    sudo ln -s $PWD/.gitconfig $HOME/.gitconfig
+else
+    echo .gitconfig already exists in $HOME
+fi
+
+# Install zsh and oh-my-zsh
+if [ ! -d $HOME/.oh-my-zsh ]
+then
+    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+else
+  echo oh-my-zsh already installed
+fi
+
+# Copy contents of zshrc
+if ! grep -Fxq -f $PWD/.zshrc $HOME/.zshrc
+then
+  cat $PWD/.zshrc >> $HOME/.zshrc
+else
+  echo zshrc already customized
+fi
+
+# Deprecated in favor of zsh
+# Symlinks bash aliases to ~/.bash_aliases
+# if [ ! -f $HOME/.bashrc ]
+# then
+#     echo .bashrc does not exist in $HOME... symlinking it now
+#     sudo ln -s $PWD/.bashrc $HOME/.bashrc
+# else
+#     echo .bashrc file already exists in $HOME
+# fi
