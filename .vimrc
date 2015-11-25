@@ -85,10 +85,14 @@ nnoremap L $
 " }}}
 
 " Splits {{{
-nnoremap <leader>sh :aboveleft vsp 
-nnoremap <leader>sj :belowright sp 
-nnoremap <leader>sk :aboveleft sp 
-nnoremap <leader>sl :belowright vsp 
+nnoremap <leader>sH :aboveleft vsp
+nnoremap <leader>sJ :belowright sp
+nnoremap <leader>sK :aboveleft sp
+nnoremap <leader>sL :belowright vsp
+nnoremap <leader>sh <C-w>h
+nnoremap <leader>sj <C-w>j
+nnoremap <leader>sk <C-w>k
+nnoremap <leader>sl <C-w>l
 " }}}
 
 " Tabs {{{
@@ -129,7 +133,6 @@ augroup END
 augroup filetype_c
 	autocmd!
     setlocal shiftwidth=4
-    autocmd FileType c inoremap <buffer> <S-CR> <esc>A;<cr>
 augroup END
 " }}}
 
@@ -226,7 +229,7 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 " YCM settings {{{
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 " }}}
-"
+
 " Syntastic settings {{{
 let g:syntastic_javascript_checkers = ['jshint']
 " }}}
