@@ -13,17 +13,20 @@ def do_lprofile(func=None, out_fp=None, follow=()):
         try:
             lprofiler = LineProfiler(func)
             for fn in follow:
-                legit = True
-                if isinstance(fn, str):
-                    obj = args[0]
-                    for attr in fn.split('.'):
-                        fn = getattr(obj, attr, None)
-                        if fn is None:
-                            print('Could not find attribute {} on object {}'.format(attr, obj))
-                            legit = False
-                            break
-                        obj = fn
-                if legit:
+                if not isinstance(fn, str):
+                    print('Need str not ', fn)
+                    continue
+
+                obj = args[0]
+
+                for attr in fn.split('.'):
+                    try:
+                        fn = getattr(obj, attr)
+                    except AttributeError:
+                        print('Could not find attribute {} on object {}'.format(attr, obj))
+                        break
+                    obj = fn
+                else:
                     lprofiler.add_function(fn)
 
             lprofiler.enable_by_count()
