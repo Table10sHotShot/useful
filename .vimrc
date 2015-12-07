@@ -12,6 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
@@ -85,10 +86,10 @@ nnoremap L $
 " }}}
 
 " Splits {{{
-nnoremap <leader>sH :aboveleft vsp
-nnoremap <leader>sJ :belowright sp
-nnoremap <leader>sK :aboveleft sp
-nnoremap <leader>sL :belowright vsp
+nnoremap <leader>sH :aboveleft vsp 
+nnoremap <leader>sJ :belowright sp 
+nnoremap <leader>sK :aboveleft sp 
+nnoremap <leader>sL :belowright vsp 
 nnoremap <leader>sh <C-w>h
 nnoremap <leader>sj <C-w>j
 nnoremap <leader>sk <C-w>k
@@ -103,6 +104,13 @@ nnoremap <leader>tl :tabnext<cr>
 
 " Operator-pending {{{
 onoremap in( :<c-u>normal! f(vi(<cr>
+" }}}
+
+" Window movements {{{
+nnoremap <c-h> <c-f>
+nnoremap <c-j> <c-d>
+nnoremap <c-k> <c-u>
+nnoremap <c-l> <c-b>
 " }}}
 " }}}
 
@@ -124,7 +132,6 @@ augroup filetype_python
 	autocmd!
 	autocmd FileType python nnoremap <buffer> <leader>c I# <esc>
 	autocmd FileType python iabbrev <buffer> inm if __name__ == '__main__':<cr>
-	autocmd FileType python nnoremap <buffer> <leader>td I# TODO(jalex): <esc>
 	autocmd FileType python nnoremap <buffer> <leader>ds :call DocString()<cr>
 augroup END
 " }}}
@@ -132,7 +139,14 @@ augroup END
 " C file settings {{{
 augroup filetype_c
 	autocmd!
-    setlocal shiftwidth=4
+    autocmd FileType c setlocal shiftwidth=4
+augroup END
+" }}}
+
+" CPP file settings {{{
+augroup filetype_cc
+	autocmd!
+    autocmd FileType cc setlocal shiftwidth=4
 augroup END
 " }}}
 
@@ -230,6 +244,15 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
 " }}}
 
+" NerdCommenter settings {{{
+inoremap <leader>c <esc>:call NERDComment(0, "invert")<CR>A
+" }}}
+
 " Syntastic settings {{{
 let g:syntastic_javascript_checkers = ['jshint']
+" }}}
+
+" NerdCommenter settings {{{
+let NERDSpaceDelims=1
+nnoremap <leader>td OTODO(jalex): <esc>:call NERDComment(0, "invert")<CR>A
 " }}}

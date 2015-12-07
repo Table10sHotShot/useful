@@ -6,6 +6,6 @@ alias sv="sudo vim"
 alias pipin="sudo pip3 install"
 alias pipun="sudo pip3 uninstall"
 # This is for macs only
-if [ -f /usr/local/bin/mvim ]; then
-  alias vim="/usr/local/bin/mvim"
+if [ -f /opt/local/bin/mvim ]; then
+  alias vim="/opt/local/bin/mvim"
 fi
