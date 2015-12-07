@@ -12,6 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
@@ -85,10 +86,10 @@ nnoremap L $
 " }}}
 
 " Splits {{{
-nnoremap <leader>sH :aboveleft vsp
-nnoremap <leader>sJ :belowright sp
-nnoremap <leader>sK :aboveleft sp
-nnoremap <leader>sL :belowright vsp
+nnoremap <leader>sH :aboveleft vsp 
+nnoremap <leader>sJ :belowright sp 
+nnoremap <leader>sK :aboveleft sp 
+nnoremap <leader>sL :belowright vsp 
 nnoremap <leader>sh <C-w>h
 nnoremap <leader>sj <C-w>j
 nnoremap <leader>sk <C-w>k
@@ -103,6 +104,13 @@ nnoremap <leader>tl :tabnext<cr>
 
 " Operator-pending {{{
 onoremap in( :<c-u>normal! f(vi(<cr>
+" }}}
+
+" Window movements {{{
+nnoremap <c-h> <c-f>
+nnoremap <c-j> <c-d>
+nnoremap <c-k> <c-u>
+nnoremap <c-l> <c-b>
 " }}}
 " }}}
 
@@ -228,6 +236,10 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 
 " YCM settings {{{
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+" }}}
+
+" NerdCommenter settings {{{
+inoremap <leader>c <esc>:call NERDComment(0, "invert")<CR>A
 " }}}
 
 " Syntastic settings {{{
