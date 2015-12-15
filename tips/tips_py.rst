@@ -42,6 +42,11 @@ Python
 
     a, *b, c = [0, 1, 2, 3, 4]
 
+* Dictionary-comprehension namespaces
+
+	{x: locals() for x in 'abc'} - locals() refers to namespace inside dict comprehension
+	[(x, locals()) for x in 'abc'] - locals() refers to namespace outside of list comprehension
+
 ndb
 ---
 
