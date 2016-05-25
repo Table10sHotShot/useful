@@ -1,0 +1,10 @@
+cut
+Bin data by portion of data range
+
+qcut
+Bin data by portion of data
+
+Grouper
+Specify data for groupby()
+http://pandas.pydata.org/pandas-docs/dev/groupby.html#grouping-with-a-grouper-specification
+eg. df.groupby([pd.Grouper(freq='1M',key='Date'),'Buyer']).sum()

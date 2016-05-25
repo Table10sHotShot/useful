@@ -19,3 +19,11 @@ recursively find expr as a filename (use -iname to ignore case)
 
 man -k expr
 finds expr in descriptions of sh commands
+
+inotifywait /path/to/file/or/dir
+Reports changes to that file or directory
+
+read a b c
+Assigns a b c to stdin
+    echo 1 2 3 4 | read a, b, c
+    Assigns '1' to a, '2' to b, '3 4' to c

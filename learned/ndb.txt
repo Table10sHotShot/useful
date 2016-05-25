@@ -1,0 +1,13 @@
+Modeling one-to-many relationships
+
+    Ancestor queries
+        Strongly consistent
+        1 write/sec
+
+    KeyProperty
+        High write throughput
+        Eventual consistency
+
+    StructuredProperty
+        Can store child node directly in parent node
+        Entity has max size of 1 MB which may be problematic (especially with repeated StructuredProperty)

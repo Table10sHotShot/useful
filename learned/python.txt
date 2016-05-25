@@ -1,0 +1,40 @@
+Package is a directory containing an __init__.py file
+The __init__.py file can control what children are available when the package is imported
+
+Partial unpacking
+a, *b, c = [0, 1, 2, 3, 4]
+
+Dictionary-comprehension namespaces
+
+    {x: locals() for x in 'abc'} - locals() refers to namespace inside dict comprehension
+    [(x, locals()) for x in 'abc'] - locals() refers to namespace outside of list comprehension
+
+lists
+
+    Backed by C arrays
+
+dict
+
+    Starts with size 8
+    Backed by C array (indexed by hash of key)
+    Elements are (key, value) tuples
+    Open addressing (recompute hash if bucket taken)
+        Leads to chained lookups
+    Dynamically allocate more memory when dict more than 2/3 full
+        Leads to smaller load factor (num entries / num buckets)
+
+style
+
+    Use context managers to build/tear down resources
+    Simplify 
+    Use custom exceptions
+    Use properties (instead of getters)
+    Define __repr__
+    nametuple instead of tuple
+    Remove error handling from business logic
+    Use keyword arguments for additional info (even if positional argument)
+    
+Clause
+    Header and suite
+    Header ends with a colon
+    Suite is group of statements controlled by header
