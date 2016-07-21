@@ -1,66 +1,75 @@
-import cProfile as _cProfile
-import functools as _functools
+import cProfile
+import pstats
+import functools
 from line_profiler import LineProfiler
 
-# TODO: update so can print_stats to file
-def do_lprofile(func=None, out_fp=None, follow=()):
+
+def profile_lines(func=None, out_fp=None, follow=()):
 
     if func is None:
-        return _functools.partial(do_lprofile, out_fp=out_fp, follow=follow)
+        return functools.partial(profile_lines, out_fp=out_fp, follow=follow)
 
-    @_functools.wraps(func)
+    @functools.wraps(func)
     def lprofiled_func(*args, **kwargs):
         try:
             lprofiler = LineProfiler(func)
-            for fn in follow:
-                if not isinstance(fn, str):
-                    print('Need str not ', fn)
+            for namespaces_chained in follow:
+                if not isinstance(namespaces_chained, str):
+                    print('Need str not ', namespaces_chained)
                     continue
 
                 obj = args[0]
+                namespaces = namespaces_chained.split('.')
 
-                for attr in fn.split('.'):
+                for attr in namespaces:
                     try:
-                        fn = getattr(obj, attr)
+                        obj = getattr(obj, attr)
                     except AttributeError:
                         print('Could not find attribute {} on object {}'.format(attr, obj))
                         break
-                    obj = fn
                 else:
-                    lprofiler.add_function(fn)
+                    lprofiler.add_function(obj)
 
             lprofiler.enable_by_count()
             result = func(*args, **kwargs)
             lprofiler.disable_by_count()
             return result
         finally:
-            if isinstance(out_fp, str):
-                with open(out_fp, 'w') as f:
-                    lprofiler.print_stats(f)
-            else:
-                lprofiler.print_stats(out_fp)
+            if out_fp:
+                lprofiler.dump_stats(out_fp)
+            lprofiler.print_stats()
 
     return lprofiled_func
 
-def do_cprofile(func):
-    @_functools.wraps(func)
+
+def profile_funcs(func=None, out_fp=None, sort_order=('cumtime',), subcalls=True, builtins=False):
+
+    if func is None:
+        return functools.partial(profile_funcs, out_fp=out_fp, sort_order=sort_order, subcalls=subcalls, builtins=builtins)
+
+    @functools.wraps(func)
     def profiled_func(*args, **kwargs):
-        profile = _cProfile.Profile()
+        profile = cProfile.Profile(subcalls=subcalls, builtins=builtins)
         try:
             profile.enable()
             result = func(*args, **kwargs)
             profile.disable()
             return result
         finally:
-            profile.print_stats(sort='cumtime')
+            stats = pstats.Stats(profile)
+            if out_fp:
+                print('dumping stats')
+                stats.dump_stats(out_fp)
+            stats.strip_dirs().sort_stats(*sort_order).print_stats()
     return profiled_func
 
-def do_memoize(obj):
-    cache = obj.cache = {}
 
-    @_functools.wraps(obj)
+def memoize(obj):
+    cache = {}
+
+    @functools.wraps(obj)
     def memoizer(*args, **kwargs):
-        key = str(args) + str(kwargs)
+        key = (args, frozenset(kwargs.items()))
 
         if key not in cache:
             cache[key] = obj(*args, **kwargs)
