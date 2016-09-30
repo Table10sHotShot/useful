@@ -1,10 +1,14 @@
 import cProfile
 import pstats
 import functools
-from line_profiler import LineProfiler
 
 
 def profile_lines(func=None, out_fp=None, follow=()):
+
+    try:
+        from line_profiler import LineProfiler
+    except ImportError:
+        raise ImportError('Need kernprof installed to do line profiling.')
 
     if func is None:
         return functools.partial(profile_lines, out_fp=out_fp, follow=follow)
