@@ -75,6 +75,11 @@ vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 " }}}
 
+" Surround in quotes {{{
+nnoremap oo o<esc>
+nnoremap OO O<esc>
+" }}}
+
 " Uppercase words {{{
 inoremap <leader>u <esc>msviwU`sa
 nnoremap <leader>u msviwU`s
