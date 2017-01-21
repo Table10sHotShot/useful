@@ -20,6 +20,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Rykka/riv.vim'
+Bundle 'JamshedVesuna/vim-markdown-preview'
 " Bundle 'vim-latex/vim-latex'
 
 Bundle 'mattn/emmet-vim'
@@ -61,6 +62,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Escape insert mode {{{
 inoremap fd <esc>
+inoremap ffd f<esc>
 inoremap <esc> <nop>
 " }}}
 
