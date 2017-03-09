@@ -1,6 +1,7 @@
 import cProfile
 import pstats
 import functools
+import pickle
 
 
 def profile_lines(func=None, out_fp=None, follow=()):
@@ -73,7 +74,7 @@ def memoize(obj):
 
     @functools.wraps(obj)
     def memoizer(*args, **kwargs):
-        key = (args, frozenset(kwargs.items()))
+        key = pickle.dumps(args) + pickle.dumps(kwargs)
 
         if key not in cache:
             cache[key] = obj(*args, **kwargs)

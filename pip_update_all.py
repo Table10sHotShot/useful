@@ -13,9 +13,9 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     for dist in pip.get_installed_distributions():
-        cmd_args = ["sudo", "pip{0}".format(version_modifier),
-                    "install", "--upgrade", dist.project_name]
+        cmd_args = ["python{}".format(version_modifier), "-m", "pip",
+                    "install", "--user", "--upgrade", dist.project_name]
         if args.certificate:
-            cmd_args.insert(2, '--cert')
-            cmd_args.insert(3, args.certificate)
+            cmd_args.insert(1, '--cert')
+            cmd_args.insert(2, args.certificate)
         call(cmd_args)
