@@ -81,3 +81,29 @@ def memoize(obj):
         return cache[key]
 
     return memoizer
+
+
+def limit_recursion(func=None, max_tries=8, exception=Exception):
+
+    # Note: this must be a decorator e.g. g = limit_recursion(f) won't work
+
+    if func is None:
+        return functools.partial(limit_recursion, max_tries=max_tries, exception=exception)
+
+    @functools.wraps(func)
+    def inner(*args, **kwargs):
+
+        try:
+            func.call_count += 1
+        except AttributeError:
+            func.call_count = 1
+
+        try:
+            if func.call_count > max_tries:
+                raise exception
+
+            return func(*args, **kwargs)
+        finally:
+            func.call_count -= 1
+
+    return inner
