@@ -1,8 +1,9 @@
 #!/bin/bash
 
-sudo apt-get install build-essential cmake
-sudo apt-get install zsh
-sudo apt-get install vim
+sudo apt-get -yq install build-essential cmake
+sudo apt-get -yq install zsh
+sudo apt-get -yq install vim
+# init and update submodule
 
 chsh -s /bin/zsh
 
