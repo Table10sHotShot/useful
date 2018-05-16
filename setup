@@ -16,6 +16,15 @@ else
     echo .bash_aliases folder already exists in $HOME
 fi
 
+# Symlinks bash functions to ~/.bash_functions
+if [ ! -f $HOME/.bash_functions ]
+then
+    echo .bash_functions does not exist in $HOME... symlinking it now
+    sudo ln -s $PWD/.bash_functions $HOME/.bash_functions
+else
+    echo .bash_functions folder already exists in $HOME
+fi
+
 # Symlinks .vim folder (for colorschemes) to ~/.vim
 # Note this breaks UltiSnips plugin on Linux VBox
 if [ ! -d $HOME/.vim ]
