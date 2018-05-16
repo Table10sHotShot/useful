@@ -1,4 +1,5 @@
 import cProfile
+import os
 import pstats
 import functools
 import pickle
@@ -105,5 +106,38 @@ def limit_recursion(func=None, max_tries=8, exception=Exception):
             return func(*args, **kwargs)
         finally:
             func.call_count -= 1
+
+    return inner
+
+
+def pickle_cache_results(func, dpath=''):
+
+    if isinstance(func, str):
+        return functools.partial(pickle_cache_results, dpath=func)
+
+    if dpath and not os.path.isdir(dpath):
+        os.makedirs(dpath)
+
+    @functools.wraps(func)
+    def inner(*args, **kwargs):
+
+        # TODO(jalex): This will only get actual kwargs that are passed in - not defaults
+
+        str_kwargs = ['-'.join((k, v)) for k, v in kwargs.items()]
+
+        fname = '_'.join(list(args) + str_kwargs) + '.pkl'
+
+        fpath = os.path.join(dpath, fname)
+
+        if os.path.isfile(fpath):
+            with open(fpath, 'rb') as f:
+                return pickle.load(f)
+        else:
+            result = func(*args, **kwargs)
+
+            with open(fpath, 'wb') as f:
+                pickle.dump(result, f)
+
+            return result
 
     return inner
