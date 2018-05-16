@@ -42,6 +42,8 @@ let mapleader = ","
 " Enable mouse
 set mouse=a
 
+set relativenumber
+
 " Default whitespace settings {{{
 set shiftwidth=4
 set tabstop=4
@@ -77,7 +79,11 @@ vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>
 vnoremap <leader>" <esc>`<i"<esc>`>a"<esc>
 " }}}
 
-" Surround in quotes {{{
+" Replace with spaces {{{
+nnoremap <leader><Space> viwr<Space>
+" }}}
+
+" Newlines normal {{{
 nnoremap oo o<esc>
 nnoremap OO O<esc>
 " }}}
