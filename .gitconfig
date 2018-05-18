@@ -3,20 +3,6 @@
 	name = Alex Vig
 [core]
 	editor = vim
-[alias]
-	ec = config --global -e
-    a = add
-	aa = add -A
-	au = add -u :/
-    b = branch
-    bd = branch -d
-	cm = commit
-    cma = commit --amend
-	co = checkout
-	cob = checkout -b
-	h = log --graph --full-history --all --color \
-        --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s"
-    s = status
 [push]
 	default = simple
 [credential]
