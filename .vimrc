@@ -21,6 +21,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Rykka/riv.vim'
 Bundle 'JamshedVesuna/vim-markdown-preview'
+Bundle 'file:///Users/alex/projects/rust.vim'
 " Bundle 'vim-latex/vim-latex'
 
 Bundle 'mattn/emmet-vim'
@@ -66,10 +67,6 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap fd <esc>
 inoremap ffd f<esc>
 inoremap <esc> <nop>
-" }}}
-
-" Toggle NERDTree {{{
-nnoremap <F2> :NERDTreeToggle<CR>
 " }}}
 
 " Surround in quotes {{{
@@ -139,7 +136,7 @@ iabbrev waht what
 " }}}
 
 " Signatures {{{
-iabbrev @@ Table10sHotShot@gmail.com
+iabbrev @@ jalexvig@gmail.com
 " }}}
 " }}}
 
@@ -273,15 +270,20 @@ let g:ycm_filetype_blacklist = {
       \}
 " }}}
 
-" NerdCommenter settings {{{
-inoremap <leader>c <esc>:call NERDComment(0, "invert")<CR>A
-" }}}
-
 " Syntastic settings {{{
 let g:syntastic_javascript_checkers = ['jshint']
+" }}}
+"
+" NERDTree settings {{{
+nnoremap <leader>ne :NERDTreeToggle<CR>
 " }}}
 
 " NerdCommenter settings {{{
 let NERDSpaceDelims=1
 nnoremap <leader>td OTODO(jalex): <esc>:call NERDComment(0, "invert")<CR>A
+inoremap <leader>c <esc>:call NERDComment(0, "invert")<CR>A
+" }}}
+
+" Rust plugin settings {{{
+let g:rustfmt_autosave = 1
 " }}}
