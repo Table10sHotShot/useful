@@ -56,12 +56,15 @@ def profile_funcs(func=None, out_fp=None, sort_order=('cumtime',), subcalls=True
     @functools.wraps(func)
     def profiled_func(*args, **kwargs):
         profile = cProfile.Profile(subcalls=subcalls, builtins=builtins)
+        profile.enable()
         try:
-            profile.enable()
             result = func(*args, **kwargs)
-            profile.disable()
+        except KeyboardInterrupt:
+            pass
+        else:
             return result
         finally:
+            profile.disable()
             stats = pstats.Stats(profile)
             if out_fp:
                 print('dumping stats')
