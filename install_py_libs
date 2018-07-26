@@ -7,11 +7,3 @@ sudo apt-get -yq install libpng-dev libfreetype6-dev
 
 # Install commonly used python libraries
 python3 -m pip install --user ipython numpy scipy matplotlib pandas tensorflow
-
-if [ ! -f $HOME/.ipython/profile_default/startup/ipython_startup.py ]
-then
-    echo ipython_startup does not exist in $HOME/.ipython/profile_default/startup... symlinking it now
-    ln -s $PWD/ipython_startup.py $HOME/.ipython/profile_default/startup/ipython_startup.py
-else
-    echo ipython_startup already exists in $HOME/.ipython/profile_default/startup
-fi
