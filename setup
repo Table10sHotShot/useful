@@ -62,7 +62,7 @@ else
 fi
 
 # Copy contents of zshrc
-if ! grep -Fxq -f $PWD/.zshrc $HOME/.zshrc
+if [ -z `grep -Fxq -f $PWD/.zshrc $HOME/.zshrc` ]
 then
   cat $PWD/.zshrc >> $HOME/.zshrc
 else

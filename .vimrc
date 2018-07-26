@@ -21,7 +21,6 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Rykka/riv.vim'
 Bundle 'JamshedVesuna/vim-markdown-preview'
-Bundle 'file:///Users/alex/projects/rust.vim'
 " Bundle 'vim-latex/vim-latex'
 
 Bundle 'mattn/emmet-vim'
