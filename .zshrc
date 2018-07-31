@@ -1,3 +1,5 @@
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages)
+
 #Note that . does the same thing as "source"
 #Load bash aliases
 if [ -f $HOME/.bash_aliases ]; then
