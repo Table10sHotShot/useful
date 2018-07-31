@@ -1,11 +1,12 @@
 #!/bin/bash
 
-sudo apt-get -yq install build-essential cmake
-sudo apt-get -yq install zsh
-sudo apt-get -yq install vim
-# init and update submodule
+if [ ! -z `command -v apt-get` ]; then
+    sudo apt-get -yq install build-essential cmake
+    sudo apt-get -yq install zsh
+    sudo apt-get -yq install vim
 
-chsh -s /bin/zsh
+    chsh -s /bin/zsh
+fi
 
 # Symlinks bash aliases to ~/.bash_aliases
 if [ ! -f $HOME/.bash_aliases ]
