@@ -2,8 +2,7 @@
 
 if [ ! -z `command -v apt-get` ]; then
     sudo apt-get -yq install build-essential cmake
-    sudo apt-get -yq install zsh
-    sudo apt-get -yq install vim
+    sudo apt-get -yq install zsh vim htop
 
     chsh -s /bin/zsh
 fi
