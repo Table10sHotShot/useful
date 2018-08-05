@@ -68,19 +68,11 @@ else
   echo "zsh-syntax-highlighting already installed"
 fi
 
-# Copy contents of zshrc
-if grep -Fxqf $PWD/.zshrc $HOME/.zshrc; then
+# Symlinks .zshrc
+if [ grep -Fxqf $PWD/.zshrc ~/.zshrc ]; then
   echo "zshrc already customized"
 else
-  cat $PWD/.zshrc >> $HOME/.zshrc
+    echo "symlinking .zshrc"
+    sudo ln -s $PWD/.zshrc ~/.zshrc
 fi
 
-# Deprecated in favor of zsh
-# Symlinks bash aliases to ~/.bash_aliases
-# if [ ! -f $HOME/.bashrc ]
-# then
-#     echo ".bashrc does not exist in $HOME... symlinking it now"
-#     sudo ln -s $PWD/.bashrc $HOME/.bashrc
-# else
-#     echo ".bashrc file already exists in $HOME"
-# fi

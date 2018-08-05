@@ -1,4 +1,10 @@
+export ZSH="/home/alex/.oh-my-zsh"
+
+ZSH_THEME="agnoster"
+
 plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages)
+
+source $ZSH/oh-my-zsh.sh
 
 #Note that . does the same thing as "source"
 #Load bash aliases
