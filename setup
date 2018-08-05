@@ -1,12 +1,5 @@
 #!/bin/bash
 
-if [ ! -z `command -v apt-get` ]; then
-    sudo apt-get -yq install build-essential cmake
-    sudo apt-get -yq install zsh vim htop
-
-    chsh -s /bin/zsh
-fi
-
 # Symlinks bash aliases to ~/.bash_aliases
 if [ ! -f $HOME/.bash_aliases ]
 then
