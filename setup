@@ -51,14 +51,14 @@ if [ ! -d $HOME/.oh-my-zsh ]
 then
     wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 else
-  echo "oh-my-zsh already installed"
+    echo "oh-my-zsh already installed"
 fi
 
 # Install zsh plugin zsh-autosuggestion
 if [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 else
-  echo "zsh-autosuggestion already installed"
+    echo "zsh-autosuggestion already installed"
 fi
 
 # Install zsh plugin zsh-syntax-highlighting
@@ -69,16 +69,19 @@ else
 fi
 
 # Symlinks .zshrc
-if [ grep -Fxqf $PWD/.zshrc ~/.zshrc ]; then
-  echo "zshrc already customized"
-else
+# TODO: fix tis
+if [ -z `grep -Fxqf $PWD/.zshrc ~/.zshrc` ]; then
     echo "symlinking .zshrc"
-    sudo ln -s $PWD/.zshrc ~/.zshrc
+    ln -f -s $PWD/.zshrc ~/.zshrc
+else
+    echo "zshrc already customized"
 fi
 
 # Install rust
-curl https://sh.rustup.rs -sSf | sh
-source ~/.cargo/env
+if [ -z `command -v rustup` ]; then
+    curl https://sh.rustup.rs -sSf | sh
+    source ~/.cargo/env
+fi
 
 cargo install ripgrep
 cargo install fd-find
