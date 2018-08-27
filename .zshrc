@@ -32,3 +32,8 @@ zstyle ':completion:*' matcher-list '' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
 prompt_context(){}
+
+#Load extra local rc
+if [ -f $HOME/.zshrc_extra ]; then
+    . $HOME/.zshrc_extra
+fi
