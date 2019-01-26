@@ -13,3 +13,7 @@ mkcd () {
     mkdir $1
     cd $1
 }
+
+function cheat() {
+  curl cht.sh/$1
+}

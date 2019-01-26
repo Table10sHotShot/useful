@@ -1,8 +1,8 @@
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages docker docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,7 +31,8 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-prompt_context(){}
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs docker_machine)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 #Load extra local rc
 if [ -f $HOME/.zshrc_extra ]; then
