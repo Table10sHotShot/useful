@@ -2,7 +2,7 @@
 	email = jalexvig@gmail.com
 	name = Alex Vig
 [core]
-	editor = vim
+    editor = "if [ `uname` = Darwin ]; then ED='mvim -f'; else ED='vim'; fi; $ED"
 [push]
 	default = simple
 [credential]

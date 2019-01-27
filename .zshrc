@@ -4,6 +4,12 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 
 plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages docker docker-compose)
 
+if [ `uname` = "Darwin" ]; then
+    plugins+=(macports)
+else
+    plugins+=(debian)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 #Note that . does the same thing as "source"
@@ -15,6 +21,11 @@ fi
 #Load bash functions
 if [ -f $HOME/.bash_functions ]; then
     . $HOME/.bash_functions
+fi
+
+#Add opt local bin (this is where macports installs)
+if [ -d /opt/local/bin ]; then
+    export PATH=/opt/local/bin:$PATH
 fi
 
 #Add home bin
@@ -36,5 +47,5 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 #Load extra local rc
 if [ -f $HOME/.zshrc_extra ]; then
-    . $HOME/.zshrc_extra
+    source $HOME/.zshrc_extra
 fi

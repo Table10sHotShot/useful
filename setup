@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ `uname` = "Linux" ]; then
+    sudo apt -yq install build-essential cmake
+    sudo apt -yq install zsh vim htop fonts-powerline
+fi
+
 # Symlinks bash aliases to ~/.bash_aliases
 if [ ! -f $HOME/.bash_aliases ]
 then
@@ -94,3 +99,8 @@ fi
 
 cargo install ripgrep
 cargo install fd-find
+
+
+if [ `uname` = "Darwin" ]; then
+    echo "See setup_instructions.md for non automated steps to follow"
+fi

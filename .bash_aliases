@@ -11,3 +11,13 @@ alias hp="history | peco"
 alias lsp="ls | peco"
 alias dk="docker"
 alias dkc="docker-compose"
+
+if [ `uname` = "Darwin" ]; then
+  if [ -f /opt/local/bin/mvim ]; then
+    alias vim="/opt/local/bin/mvim"
+  fi
+
+  if [ ! -z `command -v trash` ]; then
+    alias rm="trash"
+  fi
+fi
