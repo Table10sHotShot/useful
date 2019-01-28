@@ -68,6 +68,16 @@ else
     echo "oh-my-zsh already installed"
 fi
 
+# In case environment variable is not set
+export ZSH_CUSTOM="~/.oh-my-zsh/custom"
+
+# Install zsh theme powerlevel9k
+if [ ! -d $ZSH_CUSTOM/custom/themes/powerlevel9k ]; then
+    git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
+else
+    echo "powerlevel9k already installed"
+fi
+
 # Install zsh plugin zsh-autosuggestion
 if [ ! -d $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
@@ -83,7 +93,7 @@ else
 fi
 
 # Symlinks .zshrc
-# TODO: fix tis
+# TODO: fix this
 if [ -z `grep -Fxqf $PWD/.zshrc ~/.zshrc` ]; then
     echo "symlinking .zshrc"
     ln -f -s $PWD/.zshrc ~/.zshrc
