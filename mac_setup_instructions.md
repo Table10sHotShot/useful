@@ -26,6 +26,10 @@ Choose "Solarized Dark"
 
 iTerm2 > View > Show Tabs in Fullscreen
 
+### Clipboard access
+
+iTerm2 > General > Selection > Applications in terminal may access clipboard
+
 ### Autoquit MacVim on :q
 
 MacVim > Preferences > After last window closes: > Quit MacVim
