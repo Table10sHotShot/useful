@@ -42,7 +42,7 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs docker_machine)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs docker_machine)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 #Load extra local rc
