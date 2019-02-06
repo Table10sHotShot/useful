@@ -1,3 +1,5 @@
+# this allows aliases to be used with sudo (ending space means next work checked against aliases)
+alias sudo="sudo "
 alias sar="sudo service apache2 restart"
 alias sv="sudo vim"
 alias py="python3"
