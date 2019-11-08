@@ -33,3 +33,7 @@ iTerm2 > General > Selection > Applications in terminal may access clipboard
 ### Autoquit MacVim on :q
 
 MacVim > Preferences > After last window closes: > Quit MacVim
+
+### Install ports
+
+sudo port install git-lfs htop ImageMagick inetutils iperf3 neovim rsync tmux trash wget

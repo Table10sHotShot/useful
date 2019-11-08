@@ -42,7 +42,11 @@ zstyle ':completion:*' matcher-list '' \
   'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{a-z\-}={A-Z\_}' \
   'r:|?=** m:{a-z\-}={A-Z\_}'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs docker_machine)
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(anaconda virtualenv dir vcs docker_machine)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
 #Load extra local rc

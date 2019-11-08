@@ -13,14 +13,15 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
+" Bundle 'Valloric/YouCompleteMe'
+" Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'scrooloose/syntastic'
 Bundle 'Raimondi/delimitMate'
 Bundle 'pangloss/vim-javascript'
 Bundle 'Rykka/riv.vim'
 Bundle 'JamshedVesuna/vim-markdown-preview'
+Bundle 'altercation/vim-colors-solarized'
 " Bundle 'vim-latex/vim-latex'
 
 Bundle 'mattn/emmet-vim'
@@ -32,8 +33,8 @@ filetype indent plugin on
 syntax on
 
 " Set colorscheme {{{
-colorscheme molokai
-set t_Co=256
+set background=dark
+colorscheme solarized
 " }}}
 
 " Basic Settings {{{
@@ -41,8 +42,6 @@ let mapleader = ","
 
 " Enable mouse
 set mouse=a
-
-set relativenumber
 
 " Default whitespace settings {{{
 set shiftwidth=4
@@ -52,11 +51,16 @@ set expandtab
 
 " {{{ Turn on line numberings
 set ruler
-set nu
+set number
+set relativenumber
 " }}}
 " }}}
 
 " Mappings {{{
+" {{{ Sudo save
+cmap w!! w !sudo tee > /dev/null %
+" }}}
+
 " {{{ Modify vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>

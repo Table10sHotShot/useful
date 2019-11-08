@@ -15,8 +15,8 @@ alias dk="docker"
 alias dkc="docker-compose"
 
 if [ `uname` = "Darwin" ]; then
-  if [ -f /opt/local/bin/mvim ]; then
-    alias vim="/opt/local/bin/mvim"
+  if [ -f /opt/local/bin/nvim ]; then
+    alias vim="/opt/local/bin/nvim"
   fi
 
   if [ ! -z `command -v trash` ]; then
