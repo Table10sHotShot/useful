@@ -9,7 +9,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages docker docker-compose)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages docker docker-compose copyfile copybuffer fzf)
 
 if [ `uname` = "Darwin" ]; then
     plugins+=(macports)
