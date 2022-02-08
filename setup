@@ -71,11 +71,11 @@ fi
 # In case environment variable is not set
 export ZSH_CUSTOM="~/.oh-my-zsh/custom"
 
-# Install zsh theme powerlevel9k
-if [ ! -d $ZSH_CUSTOM/custom/themes/powerlevel9k ]; then
-    git clone https://github.com/bhilburn/powerlevel9k.git $ZSH_CUSTOM/themes/powerlevel9k
+# Install zsh theme powerlevel10k
+if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k ]; then
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 else
-    echo "powerlevel9k already installed"
+    echo "powerlevel10k already installed"
 fi
 
 # Install zsh plugin zsh-autosuggestion
