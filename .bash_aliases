@@ -15,8 +15,8 @@ alias dk="docker"
 alias dkc="docker-compose"
 
 if [ `uname` = "Darwin" ]; then
-  if [ -f /opt/local/bin/nvim ]; then
-    alias vim="/opt/local/bin/nvim"
+  if [ -f /usr/local/bin/nvim ]; then
+    alias vim="/usr/local/bin/nvim"
   fi
 
   if [ ! -z `command -v trash` ]; then
@@ -42,3 +42,5 @@ alias lst="exa --tree"
 alias grep='echo \"Using grep is not recommended. Use rg instead. if you really want to use grep, prepend a backslash before the command to bypass this alias.\"; false'
 alias find='echo \"Using find is not recommended. Use fd instead. if you really want to use find, prepend a backslash before the command to bypass this alias.\"; false'
 alias du='echo \"Using du is not recommended. Use dust instead. if you really want to use du, prepend a backslash before the command to bypass this alias.\"; false'
+
+alias cpf='copyfile'

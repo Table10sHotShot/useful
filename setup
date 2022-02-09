@@ -101,16 +101,6 @@ else
     echo "zshrc already customized"
 fi
 
-# Install rust
-if [ -z `command -v rustup` ]; then
-    curl https://sh.rustup.rs -sSf | sh
-    source ~/.cargo/env
-fi
-
-cargo install ripgrep
-cargo install fd-find
-
-
 if [ `uname` = "Darwin" ]; then
     echo "See setup_instructions.md for non automated steps to follow"
 fi

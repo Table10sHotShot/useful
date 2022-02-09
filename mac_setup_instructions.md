@@ -30,10 +30,7 @@ iTerm2 > View > Show Tabs in Fullscreen
 
 iTerm2 > General > Selection > Applications in terminal may access clipboard
 
-### Autoquit MacVim on :q
+### Install extra packages
 
-MacVim > Preferences > After last window closes: > Quit MacVim
-
-### Install ports
-
-sudo port install git-lfs htop ImageMagick inetutils iperf3 neovim rsync tmux trash wget
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install awscli dust exa fd ffmpeg fzf git git-lfs graphviz htop iperf3 k9s kubernetes-cli libvterm luajit neovim nghttp2 ripgrep speedtest-cli tmux trash wget

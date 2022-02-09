@@ -11,6 +11,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(git z zsh-autosuggestions zsh-syntax-highlighting colored-man-pages docker docker-compose copyfile copybuffer fzf)
 
+export FZF_DEFAULT_COMMAND='fd --type file'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 if [ `uname` = "Darwin" ]; then
     plugins+=(macports)
 else
