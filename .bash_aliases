@@ -23,3 +23,22 @@ if [ `uname` = "Darwin" ]; then
     alias rm="trash"
   fi
 fi
+
+alias gpmr="gpsup -o merge_request.create"
+alias gclb='git branch --merged | \grep -v master | >/tmp/merged-branches && vim /tmp/merged-branches && xargs git branch -d </tmp/merged-branches'
+alias gclbr="git branch -r --merged master | \grep -v master | sed 's/origin\///' > /tmp/merged-branches && vim /tmp/merged-branches && xargs -n 1 git push --delete origin </tmp/merged-branches"
+alias gfap='git fetch --all --prune'
+alias grho='git reset --hard origin/$(current_branch)'
+alias glg='glol --branches'
+alias gmr='python /Users/alex/deepcure/playground/gitlab_scripts/submit_mr.py'
+alias gcob='python /Users/alex/deepcure/playground/gitlab_scripts/checkout_new_branch.py --title'
+alias gdm="gd master"
+alias gl="glola --first-parent"
+
+alias ls="exa"
+alias ll="exa --long --header --git"
+alias lst="exa --tree"
+
+alias grep='echo \"Using grep is not recommended. Use rg instead. if you really want to use grep, prepend a backslash before the command to bypass this alias.\"; false'
+alias find='echo \"Using find is not recommended. Use fd instead. if you really want to use find, prepend a backslash before the command to bypass this alias.\"; false'
+alias du='echo \"Using du is not recommended. Use dust instead. if you really want to use du, prepend a backslash before the command to bypass this alias.\"; false'
