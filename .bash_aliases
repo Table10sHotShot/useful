@@ -15,8 +15,8 @@ alias dk="docker"
 alias dkc="docker-compose"
 
 if [ `uname` = "Darwin" ]; then
-  if [ -f /usr/local/bin/nvim ]; then
-    alias vim="/usr/local/bin/nvim"
+    if [ ! -z `command -v nvim` ]; then
+    alias vim="nvim"
   fi
 
   if [ ! -z `command -v trash` ]; then
@@ -30,8 +30,6 @@ alias gclbr="git branch -r --merged master | \grep -v master | sed 's/origin\///
 alias gfap='git fetch --all --prune'
 alias grho='git reset --hard origin/$(current_branch)'
 alias glg='glol --branches'
-alias gmr='python /Users/alex/deepcure/playground/gitlab_scripts/submit_mr.py'
-alias gcob='python /Users/alex/deepcure/playground/gitlab_scripts/checkout_new_branch.py --title'
 alias gdm="gd master"
 alias gl="glola --first-parent"
 
